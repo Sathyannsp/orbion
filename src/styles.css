@@ -289,10 +289,10 @@ details.faq div{padding:0 22px 20px;color:var(--muted)}
 .loc-ico svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 /* floating */
-.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:90;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.5);transition:transform .2s}
-.wa:hover{transform:scale(1.08)}.wa svg{width:30px;height:30px;fill:#fff}
+.wa{position:fixed;right:20px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:90;width:50px;height:50px;border-radius:50%;background:#1FA855;color:#fff;display:grid;place-items:center;box-shadow:0 8px 20px rgba(31,168,85,.3);transition:transform .2s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:26px;height:26px;fill:#fff}
 @media(min-width:1040px){.wa{bottom:24px}}
-.call-f{position:fixed;right:20px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:90;width:50px;height:50px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(255,107,94,.45);transition:transform .2s}
+.call-f{position:fixed;right:20px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:90;width:50px;height:50px;border-radius:50%;background:#fff;color:var(--navy);border:1.5px solid var(--line);display:grid;place-items:center;box-shadow:0 10px 24px rgba(27,42,92,.22);transition:transform .2s}
 .call-f:hover{transform:scale(1.08)}
 .call-f svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media(min-width:1040px){.call-f{display:none}}
