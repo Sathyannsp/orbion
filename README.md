@@ -3,7 +3,7 @@
 Vite + React 18 + TypeScript + React Router. Every route is prerendered to static HTML at build time (`vite-react-ssg`), so search engines and WhatsApp previews see real content. Forms post to a Google Apps Script backend.
 
 ```
-src/main.tsx, routes.tsx     entry + 18 routes
+src/main.tsx, routes.tsx     entry + 12 pages (old URLs redirect)
 src/pages/                   one component per page
 src/components/              Layout, sections, forms, Booking, lists, HeroScene, ui
 src/data/content.ts          events, blog posts, team, testimonials (edit this file)

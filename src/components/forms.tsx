@@ -2,13 +2,13 @@ import { useState, type FormEvent, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon, SuccessTick } from './ui'
 import { isValid, type Kind } from '../lib/validate'
-import { CFG, PROGRAMMES, WA } from '../lib/config'
+import { CFG, PROGRAMME_GROUPS, WA } from '../lib/config'
 import { errText, readCv, send } from '../lib/submit'
 import { useGuards } from '../lib/useGuards'
 
 export interface FieldSpec {
   id: string; label: string; type?: 'text' | 'tel' | 'email' | 'date' | 'select' | 'textarea' | 'file'
-  required?: boolean; kind?: Kind; options?: string[]; full?: boolean; ph?: string; err?: string; autoComplete?: string; inputMode?: 'tel' | 'text'
+  required?: boolean; kind?: Kind; options?: string[]; groups?: [string, string[]][]; full?: boolean; ph?: string; err?: string; autoComplete?: string; inputMode?: 'tel' | 'text'
 }
 
 /** Controlled form state with per-field validation (blur, then live once invalid). */
@@ -37,7 +37,7 @@ export function Field({ s, f }: { s: FieldSpec; f: FormState }) {
   const bad = f.bad(s.id), ok = f.ok(s.id), v = f.values[s.id] || ''
   const common = { id: s.id, name: s.id, required: s.required, 'aria-required': s.required || undefined, 'aria-invalid': bad || undefined, onBlur: () => f.blur(s.id) }
   let input: ReactNode
-  if (s.type === 'select') input = <select {...common} value={v} onChange={e => f.set(s.id, e.target.value)}><option value="">Select…</option>{s.options!.map(o => <option key={o}>{o}</option>)}</select>
+  if (s.type === 'select') input = <select {...common} value={v} onChange={e => f.set(s.id, e.target.value)}><option value="">Select…</option>{s.groups ? s.groups.map(([g, os]) => <optgroup key={g} label={g}>{os.map(o => <option key={o}>{o}</option>)}</optgroup>) : s.options!.map(o => <option key={o}>{o}</option>)}</select>
   else if (s.type === 'textarea') input = <textarea {...common} value={v} placeholder={s.ph} onChange={e => f.set(s.id, e.target.value)} />
   else if (s.type === 'file') input = <input {...common} type="file" accept=".pdf,.doc,.docx" onChange={e => f.set(s.id, e.target.files?.[0]?.name || '')} />
   else input = <input {...common} type={s.type || 'text'} value={v} placeholder={s.ph} autoComplete={s.autoComplete} inputMode={s.inputMode} onChange={e => f.set(s.id, e.target.value)} />
@@ -57,7 +57,7 @@ const ENQUIRY: FieldSpec[] = [
   { id: 'email', label: 'Email', type: 'email', required: true, kind: 'email', autoComplete: 'email', err: 'Please enter a valid email address.' },
   { id: 'child', label: 'Child’s name', required: true },
   { id: 'dob', label: 'Child’s date of birth', type: 'date', required: true },
-  { id: 'prog', label: 'Programme', type: 'select', required: true, options: PROGRAMMES },
+  { id: 'prog', label: 'Programme', type: 'select', required: true, groups: PROGRAMME_GROUPS },
   { id: 'year', label: 'Academic year', type: 'select', required: true, options: ['2027–28', '2028–29'] },
   { id: 'area', label: 'Area / locality', ph: 'e.g. Vilankurichi' },
   { id: 'heard', label: 'How did you hear about us?', type: 'select', options: ['Friend or family', 'Social media', 'Search', 'Banner / hoarding', 'WhatsApp', 'Other'] },
@@ -98,13 +98,12 @@ function useSecureSubmit(type: 'enquiry' | 'career', f: FormState, map: Record<s
   return { ...g, busy, error, done, onSubmit }
 }
 
-const MockNote = ({ what }: { what: string }) => (CFG.endpoint ? null : <p className="mock-note">Design preview: {what} are not sent anywhere yet.</p>)
 
 export function EnquiryForm() {
   const f = useFormState(ENQUIRY)
   const s = useSecureSubmit('enquiry', f, Object.fromEntries(ENQUIRY.map(x => [x.id, x.id])))
   return (
-    <form className="form" id="enquire" noValidate aria-label="Admission enquiry form" onSubmit={s.onSubmit} style={{ position: 'relative' }}>
+    <form className="form" id="enquiry-form" noValidate aria-label="Admission enquiry form" onSubmit={s.onSubmit} style={{ position: 'relative' }}>
       {!s.done ? (
         <div className="form-body">
           <div className="fgrid">{ENQUIRY.map(x => <Field key={x.id} s={x} f={f} />)}</div>
@@ -112,14 +111,13 @@ export function EnquiryForm() {
           {s.guard}
           {s.error && <p className="form-err" role="alert">{s.error}</p>}
           <div className="btns"><button className="btn btn-primary" type="submit" disabled={s.busy}>{s.busy ? 'Sending…' : 'Submit Enquiry'}</button></div>
-          <MockNote what="enquiries" />
         </div>
       ) : (
         <div className="success show" role="status">
           <SuccessTick />
           <h3>Thank you! Your mission is underway.</h3>
           <p style={{ margin: '10px auto 0', maxWidth: '46ch', color: 'var(--muted)' }}>We’ve noted your enquiry and a member of our team will be in touch. Prefer a quicker chat?</p>
-          <div className="btns" style={{ justifyContent: 'center' }}><a className="btn btn-primary" href={WA}>Continue on WhatsApp</a><Link className="btn btn-secondary" to="/visit">Book a Campus Visit</Link></div>
+          <div className="btns" style={{ justifyContent: 'center' }}><a className="btn btn-primary" href={WA}>Continue on WhatsApp</a><Link className="btn btn-secondary" to="/admissions#visit">Book a Campus Visit</Link></div>
         </div>
       )}
     </form>
@@ -138,7 +136,6 @@ export function CareerForm() {
           {s.guard}
           {s.error && <p className="form-err" role="alert">{s.error}</p>}
           <div className="btns"><button className="btn btn-primary" type="submit" disabled={s.busy}>{s.busy ? 'Sending…' : 'Submit Application'}</button></div>
-          <MockNote what="applications" />
         </div>
       ) : (
         <div className="success show" role="status"><SuccessTick /><h3>Thank you for applying!</h3><p style={{ color: 'var(--muted)' }}>We’ll review your application and be in touch.</p></div>

@@ -21,12 +21,31 @@ export function Journey({ center }: { center?: boolean }) {
             <div className="code">{s.code}</div><h3>{s.name}</h3><div className="who">{s.room}</div>
             <p>{s.desc}</p>
             <ul>{s.out.map(x => <li key={x}>{x}</li>)}</ul>
-            <Link className="btn btn-secondary btn-sm" to={s.k === 'station' ? '/daycare' : `/programmes#${s.k}`}>Explore Programme</Link>
+            <Link className="btn btn-secondary btn-sm" to={s.k === 'station' ? '/programmes#daycare' : `/programmes#${s.k}`}>Explore Programme</Link>
           </article>
         ))}
       </div>
       <p className={`journey-note ${center ? 'center' : ''}`}>Learning outcomes shown are indicative and will be finalised with the school’s curriculum team.</p>
     </>
+  )
+}
+
+/** One-line journey for the home page; the full timeline lives on /programmes. */
+export function JourneyCompact() {
+  return (
+    <div className="rv">
+      <ol className="jc">
+        {STAGES.map(s => (
+          <li key={s.k} className={`c-${s.c}`}>
+            <Link to={s.k === 'station' ? '/programmes#daycare' : `/programmes#${s.k}`}>
+              <span className="jc-pl"><Planet kind={s.k} size={44} /></span>
+              <b>{s.name}</b><small>{s.code}</small>
+            </Link>
+          </li>
+        ))}
+      </ol>
+      <div className="btns" style={{ justifyContent: 'center' }}><Link className="btn btn-secondary" to="/programmes">See the full journey</Link></div>
+    </div>
   )
 }
 
@@ -59,7 +78,7 @@ export function Cta({ title = 'Let’s begin your child’s journey', text = 'Te
       <div style={{ position: 'relative' }}><h2>{title}</h2><p style={{ marginTop: 10 }}>{text}</p></div>
       <div className="btns" style={{ position: 'relative' }}>
         <Link className="btn btn-primary" to="/admissions#enquire">Enquire Now</Link>
-        <Link className="btn btn-light" to="/visit">Book a Campus Visit</Link>
+        <Link className="btn btn-light" to="/admissions#visit">Book a Campus Visit</Link>
       </div>
     </div>
   )

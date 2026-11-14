@@ -6,7 +6,7 @@
   --sun-t:#FFF3D6; --coral-t:#FFE6E3; --mint-t:#DDF7EC; --sky-t:#E0F1FF; --violet-t:#ECE8FF; --pink-t:#FFE6F1;
   --r:20px; --r-lg:28px; --r-sm:12px;
   --sh:0 6px 24px rgba(27,42,92,.08); --sh-lg:0 18px 50px rgba(27,42,92,.14);
-  --f-head:'Fredoka',system-ui,sans-serif; --f-body:'Nunito',system-ui,sans-serif;
+  --f-head:'Fredoka',system-ui,sans-serif; --f-body:'Fredoka',system-ui,sans-serif;
   --c:var(--sky); --ct:var(--sky-t);
 }
 *{box-sizing:border-box;margin:0}
@@ -73,7 +73,7 @@ section{padding:clamp(56px,8vw,104px) 0;position:relative}
 .hero .brandline{font:600 .95rem var(--f-head);color:var(--navy);letter-spacing:.06em;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
 .hero .brandline b{color:var(--coral)}
 .hero p.lead{margin-top:18px}
-@media(min-width:960px){.hero .container{grid-template-columns:1.05fr .95fr}}
+
 .page-hero{padding:clamp(40px,6vw,76px) 0 clamp(36px,5vw,64px);background:linear-gradient(180deg,var(--ct),#fff);overflow:hidden}
 .page-hero .container{position:relative}
 .page-hero p.lead{margin-top:14px}
@@ -278,6 +278,11 @@ details.faq div{padding:0 22px 20px;color:var(--muted)}
 .ftr .fine{font-size:.8rem;margin-top:22px;color:#8591BF}
 .soc{display:flex;gap:10px;margin-top:14px}.soc a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;padding:0;font:600 .8rem var(--f-head)}
 .soc a:hover{background:var(--coral)}
+.soc svg{width:20px;height:20px}.soc.dark a{background:var(--navy);color:#fff}.soc.dark a:hover{background:var(--coral)}
+.hero .loc{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:8px 16px 8px 10px;border-radius:999px;background:#fff;box-shadow:var(--sh);font:500 .95rem var(--f-head);color:var(--navy)}
+.hero .loc:hover{color:var(--coral)}
+.loc-ico{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--coral-t);color:var(--coral)}
+.loc-ico svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 /* floating */
 .wa{position:fixed;right:16px;bottom:88px;z-index:90;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.5);transition:transform .2s}
@@ -386,3 +391,58 @@ body{background:var(--bg)}
 .field input,.field select,.field textarea{border-radius:12px;background:#FFFDF8}
 .cta{border-radius:24px}
 .mbar{background:rgba(255,251,243,.97)}
+
+/* announcement banner */
+.annc{background:var(--navy);color:#F6EEDC;display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 48px 8px 20px;position:relative;font:600 .92rem/1.35 var(--f-head);text-align:center}
+.annc p{margin:0}.annc a{color:var(--sun);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;margin-left:4px}.annc a:hover{color:#fff}
+.annc button{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;border-radius:50%;background:transparent;color:#F6EEDC;font-size:1.5rem;line-height:1;cursor:pointer}
+.annc button:hover{background:rgba(255,255,255,.12)}
+
+/* compact journey (home) */
+.jc{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;max-width:880px;margin:0 auto}
+.jc a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:18px 10px;background:#fff;border:1.5px solid var(--line);border-radius:16px;text-align:center;transition:transform .2s}
+.jc a:hover{transform:rotate(-.8deg)}
+.jc-pl{width:64px;height:64px;border-radius:50%;background:var(--ct);display:grid;place-items:center;margin-bottom:4px}
+.jc b{font:600 1.1rem var(--f-head);color:var(--navy)}.jc small{font:600 .7rem var(--f-head);letter-spacing:.14em;color:var(--c)}
+
+/* anchored sections land below the sticky header */
+[id]{scroll-margin-top:92px}
+.event .date{flex:none;min-width:68px;width:auto;padding:8px 10px}
+.event .date b{white-space:nowrap}
+.event .tag{margin-bottom:2px}
+
+/* hero background toys (HeroToys.tsx): scattered over the whole hero, behind the text */
+.hero{position:relative;padding-bottom:clamp(90px,10vw,130px)}
+.hero .container{position:relative;z-index:1}
+.hero-copy{max-width:600px}
+.hero-toys{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.toy{position:absolute;width:var(--w)}.toy svg{display:block;width:100%;height:auto;overflow:visible}
+.toy{opacity:.14}
+.toy-in{animation:toy-float 6s ease-in-out infinite}
+.t-rubik{--w:104px;left:47%;top:9%}.t-rubik .toy-in{animation:toy-spin 9s ease-in-out infinite}
+.t-rubik2{--w:58px;left:3%;top:5%}.t-rubik2 .toy-in{animation:toy-spin 11s ease-in-out infinite reverse}
+.t-rocket{--w:70px;right:6%;top:9%;transform:rotate(18deg)}.t-rocket .toy-in{animation-duration:4s}
+.t-rocket .flame{transform-box:fill-box;transform-origin:50% 0;animation:toy-flame .25s ease-in-out infinite alternate}
+.t-tower{--w:140px;right:5%;bottom:5%}.t-tower .toy-in{animation:none}
+.t-tower .wobble{transform-origin:41px 64px;animation:toy-wobble 3s ease-in-out infinite}
+.t-block2{--w:54px;right:27%;top:38%}.t-block2 .toy-in{animation-duration:7s;animation-delay:-3s}
+.t-rocket3{--w:34px;left:38%;top:2%;transform:rotate(24deg)}.t-rocket3 .toy-in{animation-duration:6s;animation-delay:-3s}
+.twinkle{position:absolute;opacity:.2;width:14px;height:14px;background:var(--sun);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:toy-twinkle 2.8s ease-in-out infinite}
+.twinkle.s1{right:20%;top:24%}.twinkle.s2{left:42%;top:4%;width:10px;height:10px;animation-delay:-1s}.twinkle.s3{right:3%;top:70%;animation-delay:-2s;background:var(--coral)}
+@keyframes toy-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes toy-spin{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-5px) rotate(3deg)}}
+@keyframes toy-wobble{0%,100%{transform:rotate(0)}30%{transform:rotate(-6deg)}60%{transform:rotate(5deg)}}
+@keyframes toy-flame{from{transform:scaleY(.7)}to{transform:scaleY(1.2)}}
+@keyframes toy-twinkle{0%,100%{opacity:.05;transform:scale(.6)}50%{opacity:.2;transform:scale(1.1) rotate(30deg)}}
+/* tablets & phones: same scatter, smaller and softer so the text stays readable */
+@media(max-width:959px){
+  .hero{padding-bottom:48px}
+  .toy{width:calc(var(--w) * .55)}
+  .toy{opacity:.12}
+  .t-rubik{left:auto;right:4%;top:4%}
+  .t-rocket{right:8%;top:44%}
+  .t-tower{right:3%;bottom:2%}
+  .twinkle.s2{display:none}
+  .t-rocket3{left:56%;top:2%}
+}
+@media (prefers-reduced-motion:reduce){.hero-toys *{animation:none!important}}

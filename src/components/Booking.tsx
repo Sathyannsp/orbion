@@ -2,7 +2,7 @@ import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { Field, useFormState, type FieldSpec } from './forms'
 import { SuccessTick } from './ui'
-import { CFG, WA } from '../lib/config'
+import { CFG, PROGRAMME_GROUPS, WA } from '../lib/config'
 import { errText, send, takenSlots } from '../lib/submit'
 import { useGuards } from '../lib/useGuards'
 
@@ -16,7 +16,7 @@ const SPEC: FieldSpec[] = [
   { id: 'vname', label: 'Parent name', required: true, full: true, autoComplete: 'name' },
   { id: 'vphone', label: 'Phone number', type: 'tel', required: true, kind: 'phone', inputMode: 'tel', autoComplete: 'tel', err: 'Please enter a valid 10-digit mobile number.' },
   { id: 'vemail', label: 'Email', type: 'email', required: true, kind: 'email', autoComplete: 'email', err: 'Please enter a valid email address.' },
-  { id: 'vprog', label: 'Programme of interest', type: 'select', required: true, full: true, options: ['Playgroup', 'Pre-KG', 'LKG', 'UKG', 'Daycare', 'After-School'], err: 'Please choose a programme.' }
+  { id: 'vprog', label: 'Programme of interest', type: 'select', required: true, full: true, groups: PROGRAMME_GROUPS, err: 'Please choose a programme.' }
 ]
 
 export default function Booking() {
@@ -102,7 +102,6 @@ export default function Booking() {
         {g.guard}
         {error && <p className="form-err" role="alert">{error}</p>}
         <div className="btns"><button className="btn btn-primary" type="submit" disabled={busy}>{busy ? 'Booking…' : 'Confirm Visit'}</button></div>
-        {!CFG.endpoint && <p className="mock-note">Design preview: bookings are not sent anywhere yet.</p>}
       </form>
     </div>
   )

@@ -15,8 +15,8 @@ function EventCard({ it, i }: { it: ContentItem; i: number }) {
   const d = m ? new Date(+m[1], +m[2] - 1, +m[3]) : null
   return (
     <div className={`card event c-${COLS[i % 6]}`}>
-      <div className="date">{d ? <><b>{d.getDate()}</b><span>{d.toLocaleDateString('en-IN', { month: 'short' })} {d.getFullYear()}</span></> : <><b>{it.date || 'TBA'}</b><span>{String(it.category || '').slice(0, 10)}</span></>}</div>
-      <div><h3>{it.title}</h3><p>{it.summary}</p></div>
+      <div className="date">{d ? <><b>{d.getDate()}</b><span>{d.toLocaleDateString('en-IN', { month: 'short' })} {d.getFullYear()}</span></> : <><b>{it.date || 'TBA'}</b></>}</div>
+      <div style={{ minWidth: 0 }}>{it.category && <span className="tag">{it.category}</span>}<h3 style={{ marginTop: 8 }}>{it.title}</h3><p>{it.summary}</p></div>
     </div>
   )
 }
@@ -119,7 +119,6 @@ export function Instagram() {
           <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(150px,1fr))', gap: 12 }}>
             {['star', 'orbit', 'moon', 'earth', 'launch', 'mars'].map((a, i) => <Ph key={a} art={a} className={`sq c-${COLS[i]}`} style={{ minHeight: 0 }} />)}
           </div>
-          <p className="mock-note">Placeholder: the live Instagram feed appears here once the widget is connected (see README).</p>
         </>
       )}
       <div className="btns"><a className="btn btn-secondary" href={url} target="_blank" rel="noopener">Follow us on Instagram</a></div>

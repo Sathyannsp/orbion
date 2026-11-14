@@ -11,4 +11,8 @@ export const CFG = {
 export const PHONE1 = '8531908868'
 export const PHONE2 = '8148756418'
 export const WA = 'https://wa.me/918531908868'
-export const PROGRAMMES = ['Playgroup', 'Pre-KG', 'LKG', 'UKG', 'Daycare', 'Academic Excellence', 'Speak & Shine', 'Young Leaders', 'AI & STEM Lab']
+/** Programme dropdown groups: preschool children vs. school students. */
+export const PROGRAMME_GROUPS: [string, string[]][] = [
+  ['Preschool & Daycare (children)', ['Playgroup', 'Pre-KG', 'LKG', 'UKG', 'Daycare']],
+  ['After School (Classes 1–12)', ['Academic Excellence', 'Speak & Shine', 'Young Leaders', 'AI & STEM Lab']]
+]

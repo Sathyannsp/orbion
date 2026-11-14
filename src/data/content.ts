@@ -1,6 +1,15 @@
 /* Site content. Edit this file to change events, articles, team and testimonials. */
 export interface ContentItem { [k: string]: any }
 
+/** Top-of-site announcement banner. Set active: false to hide it; change id to show a new message to people who dismissed the old one. */
+export const announcement = {
+  active: true,
+  id: 'admissions-2027',
+  text: 'Now taking enquiries for the June 2027 academic year.',
+  linkText: 'Enquire now',
+  to: '/admissions#enquire'
+}
+
 export const events: ContentItem[] = [
   {
     "title": "Open House",
