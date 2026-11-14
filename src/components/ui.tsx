@@ -9,14 +9,7 @@ export const RoomArt = ({ color, planetKind, label }: { color: string; planetKin
 export const IconBox = ({ name, className = '' }: { name: string; className?: string }) => <span className={`ico ${className}`}><Icon name={name} /></span>
 
 export function Logo() {
-  return (
-    <svg viewBox="0 0 48 48" aria-hidden="true">
-      <circle cx="24" cy="24" r="21" fill="#1B2A5C" />
-      <ellipse cx="24" cy="24" rx="19" ry="7" fill="none" stroke="#FFB62E" strokeWidth="2.2" transform="rotate(-25 24 24)" />
-      <circle cx="24" cy="24" r="9" fill="#fff" /><circle cx="24" cy="24" r="4.5" fill="#FF6B5E" />
-      <path d="M38 12l1.2 2.6 2.8.4-2 2 .5 2.8L38 18.4l-2.5 1.4.5-2.8-2-2 2.8-.4z" fill="#FFB62E" />
-    </svg>
-  )
+  return <img className="logo-img" src="/brand/logo.png" alt="" width={52} height={52} />
 }
 
 export function OrbitDeco() {

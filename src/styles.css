@@ -50,7 +50,7 @@ section{padding:clamp(56px,8vw,104px) 0;position:relative}
 .hdr .container{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px}
 .logo{display:flex;align-items:center;gap:10px;font:600 1.3rem var(--f-head);color:var(--navy)}
 .logo small{display:block;font:600 .6rem var(--f-head);letter-spacing:.22em;color:var(--coral);margin-top:-2px}
-.logo svg{width:40px;height:40px;flex:none}
+.logo-img{width:52px;height:52px;flex:none;object-fit:contain}
 .nav{display:none;gap:4px;align-items:center}
 .nav a{padding:8px 12px;border-radius:999px;font:500 .95rem var(--f-head);color:var(--navy);transition:background .2s}
 .nav a:hover{background:var(--bg-soft)} .nav a.on{background:var(--sky-t);color:var(--navy-2)}
@@ -273,7 +273,7 @@ details.faq div{padding:0 22px 20px;color:var(--muted)}
 .ftr .cols>div:first-child{grid-column:1/-1}
 @media(min-width:900px){.ftr .cols{grid-template-columns:1.6fr 1fr 1fr 1fr 1.2fr}.ftr .cols>div:first-child{grid-column:auto}}
 .ftr a{display:block;padding:5px 0;font-size:.95rem}.ftr a:hover{color:#fff}
-.ftr .logo{color:#fff}
+.ftr .logo{display:flex;padding:0;color:#fff}
 .ftr .brand-end{margin-top:46px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);text-align:center}
 .ftr .brand-end b{font:600 1.2rem var(--f-head);letter-spacing:.18em;color:#fff;display:block}
 .ftr .brand-end i{display:block;font-style:normal;letter-spacing:.2em;font:500 .85rem var(--f-head);margin-top:6px;color:var(--sun)}
