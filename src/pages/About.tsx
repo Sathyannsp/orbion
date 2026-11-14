@@ -21,8 +21,7 @@ export default function About() {
 
 <section className="soft"><div className="container split rev">
  <div className="rv"><span className="eyebrow c-violet">Founder’s vision</span><h2>Why Orbion was established</h2>
-  <p style={{ fontSize: '1.1rem' }}>“Every child confident, curious and ready to go beyond.”</p>
-  <div className="notice" style={{ marginTop: 18 }}><b>Draft.</b> A personal note from founder Soniya will be added here once approved.</div></div>
+  <p style={{ fontSize: '1.1rem' }}>“Every child confident, curious and ready to go beyond.”</p></div>
  <Ph className="c-coral wide rv d1" art="star" cap="Founder portrait" /></div></section>
 
 <section className="soft"><div className="container">

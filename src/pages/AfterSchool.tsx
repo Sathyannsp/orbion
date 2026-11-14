@@ -21,8 +21,7 @@ export default function AfterSchool() {
   <ul className="tick"><li>Teamwork and decision-making</li><li>Confidence and etiquette</li><li>Projects and leadership roles</li></ul><Link className="btn btn-secondary btn-sm" style={{ marginTop: '18px' }} to="/admissions#enquire">Enquire</Link></article>
  <article className="card c-violet rv d1" style={{ padding: '34px' }}><div className="num">04</div><IconBox name="laptop" /><h3 style={{ marginTop: '14px' }}>AI &amp; STEM Lab</h3><p>An introduction to artificial intelligence and technology through projects and experiments.</p>
   <ul className="tick"><li>Hands-on STEM experiments</li><li>Introduction to AI and coding concepts</li><li>Build, test and present projects</li></ul><Link className="btn btn-secondary btn-sm" style={{ marginTop: '18px' }} to="/admissions#enquire">Enquire</Link></article>
- </div>
- <p className="journey-note"><span className="draft">To confirm</span> Batch timings, grouping by class and fees will be shared by the school. Please contact us for details.</p></div></section>
+ </div></div></section>
     </>
   )
 }

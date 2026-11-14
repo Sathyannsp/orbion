@@ -1,7 +1,7 @@
 import { Head } from 'vite-react-ssg'
 import { Cta } from '../components/sections'
 import { GalleryGrid } from '../components/lists'
-import { IconBox, Notice, OrbitDeco, Ph, RoomArt } from '../components/ui'
+import { IconBox, OrbitDeco, Ph, RoomArt } from '../components/ui'
 
 const CHIPS = ['Main entrance', 'Activity room', 'Reading & storytelling corner', 'Computer lab', 'Indoor play area', 'Outdoor play area', 'Art & creativity zone', 'Healthy snack area', 'Washrooms', 'Corridors & common spaces']
 
@@ -24,7 +24,6 @@ export default function Campus() {
   <div className="card c-pink rv d2"><IconBox name="aid" /><h3>First aid</h3><p>First-aid provisions kept ready on campus.</p></div>
   <div className="card c-sky rv"><IconBox name="leaf" /><h3>Hygiene &amp; cleanliness</h3><p>Regular cleaning of classrooms, toys and washrooms.</p></div>
  </div>
- <Notice style={{ marginTop: 28 }}><b>For owner review.</b> The campus is not yet operating. Please confirm each provision above is in place, and update any wording that differs, before launch.</Notice>
 </div></section>
 
 <section className="soft" id="facilities"><div className="container">
@@ -33,7 +32,7 @@ export default function Campus() {
   <article className="card c-sky rv" style={{ padding: 0, overflow: 'hidden' }}><Ph className="wide" art="orbit" cap="Air-conditioned classrooms" /><div style={{ padding: 22 }}><IconBox name="ac" /><h3>Air-conditioned classrooms</h3><p>Comfortable, bright rooms with child-friendly furniture and learning boards.</p></div></article>
   <article className="card c-violet rv d1" style={{ padding: 0, overflow: 'hidden' }}><Ph className="wide" art="moon" cap="Computer lab" /><div style={{ padding: 22 }}><IconBox name="laptop" /><h3>Computer lab</h3><p>A friendly introduction to technology for older learners.</p></div></article>
   <article className="card c-sun rv d2" style={{ padding: 0, overflow: 'hidden' }}><Ph className="wide" art="star" cap="Healthy snack area" /><div style={{ padding: 22 }}><IconBox name="snack" /><h3>Healthy snacks</h3><p>Nutritious snacks served in a clean, dedicated area.</p></div></article>
-  <article className="card c-coral rv" style={{ padding: 0, overflow: 'hidden' }}><Ph className="wide" art="launch" cap="Safe transport" /><div style={{ padding: 22 }}><IconBox name="bus" /><h3>Safe transport</h3><p>Transport options for families. <span className="draft">Details to confirm</span></p></div></article>
+  <article className="card c-coral rv" style={{ padding: 0, overflow: 'hidden' }}><Ph className="wide" art="launch" cap="Safe transport" /><div style={{ padding: 22 }}><IconBox name="bus" /><h3>Safe transport</h3><p>Transport options for families.</p></div></article>
   <article className="card c-mint rv d1" style={{ padding: 0, overflow: 'hidden' }}><Ph className="wide" art="station" cap="Daycare nap room" /><div style={{ padding: 22 }}><IconBox name="moon" /><h3>Daycare nap room</h3><p>A quiet, cosy space for children to rest.</p></div></article>
  </div>
  <p className="rv" style={{ marginTop: 26, color: 'var(--muted)' }}><b style={{ color: 'var(--navy)' }}>Also planned:</b> {CHIPS.join(' · ')}.</p>

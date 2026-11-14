@@ -13,7 +13,7 @@ export default function Contact() {
  <div className="rv"><h2>Contact us</h2>
   <div className="grid" style={{ gap: '14px', marginTop: '22px' }}>
    <a className="card flat c-mint" href="https://wa.me/918531908868" style={{ display: 'flex', gap: '14px', alignItems: 'center', padding: '18px' }}><IconBox name="chat" /><div><b style={{ color: 'var(--navy)' }}>WhatsApp enquiry</b><br /><small>Chat with us</small></div></a>
-   <div className="card flat c-coral" style={{ display: 'flex', gap: '14px', alignItems: 'center', padding: '18px' }}><IconBox name="pin" /><div><b style={{ color: 'var(--navy)' }}>Vilankurichi, Coimbatore, Tamil Nadu</b><br /><small>Full address to be confirmed</small></div></div>
+   <div className="card flat c-coral" style={{ display: 'flex', gap: '14px', alignItems: 'center', padding: '18px' }}><IconBox name="pin" /><div><b style={{ color: 'var(--navy)' }}>Vilankurichi, Coimbatore, Tamil Nadu</b></div></div>
   </div>
   <Social className="dark" style={{ marginTop: '20px' }} /></div>
  <Ph className="c-sky tall rv d1" art="earth" cap="Vilankurichi, Coimbatore" />

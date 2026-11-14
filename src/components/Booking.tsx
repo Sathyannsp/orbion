@@ -91,7 +91,7 @@ export default function Booking() {
           })}
         </div>
         {dateErr && <p role="alert" style={{ color: '#D23C2E', fontWeight: 700, fontSize: '.85rem', marginTop: 8 }}>Please choose a date and a time slot.</p>}
-        <p className="mock-note" style={{ textAlign: 'left' }}>Sundays unavailable. Slots are illustrative until the visit schedule is confirmed.</p>
+        <p className="mock-note" style={{ textAlign: 'left' }}>Sundays unavailable.</p>
       </div>
       <form className="form rv d1" noValidate onSubmit={onSubmit} style={{ position: 'relative' }}>
         <div className="card flat c-sun tint" style={{ marginBottom: 20, padding: 16 }}>

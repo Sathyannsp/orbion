@@ -55,7 +55,6 @@ function Footer() {
       <div className="cols">
         <div>
           <Link className="logo" to="/"><Logo /><span>Orbion<small>PREP SCHOOL</small></span></Link>
-          <p style={{ marginTop: 14, maxWidth: '34ch' }}>Journey Beyond the Orbit. An activity-based preschool opening in Vilankurichi, Coimbatore for the June 2027 academic year.</p>
           <Social />
         </div>
         {col('School', [['/about', 'About Us'], ['/about#team', 'Our Team'], ['/programmes', 'Programmes'], ['/programmes#daycare', 'Daycare'], ['/after-school', 'After School']])}

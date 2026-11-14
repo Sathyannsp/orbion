@@ -10,8 +10,7 @@ export default function Programmes() {
 <section className="page-hero c-violet"><OrbitDeco /><div className="container"><div className="crumb"><Link to="/">Home</Link> / Programmes</div>
  <h1>One journey. Four worlds.</h1><p className="lead">From Playgroup to UKG, a clear progression that builds skills step by step, plus our Space Station Daycare. Looking for Classes 1–12? See <Link to="/after-school" style={{ textDecoration: 'underline' }}>After School</Link>.</p>
  <div className="btns"><a className="btn btn-secondary btn-sm" href="#launch">Launch</a><a className="btn btn-secondary btn-sm" href="#orbit">Orbit</a><a className="btn btn-secondary btn-sm" href="#moon">Moon</a><a className="btn btn-secondary btn-sm" href="#mars">Mars</a><a className="btn btn-secondary btn-sm" href="#daycare">Daycare</a></div></div></section>
-<section><div className="container"><Journey />
- <p className="journey-note"><span className="draft">To confirm</span> Age bands, daily timings and class sizes will be confirmed by the school before launch. The typical days below are samples.</p></div></section>
+<section><div className="container"><Journey /></div></section>
 
 {/* Programme details */}
 <section id="launch" className="c-sun soft"><div className="container split"><div className="rv"><span className="eyebrow">Playgroup · LAUNCH</span><h2>The beginning of curiosity and discovery</h2>
@@ -65,8 +64,7 @@ export default function Programmes() {
   <div className="step c-coral rv d2"><h4>Activities</h4><p>Age-appropriate creative play.</p></div>
   <div className="step c-violet rv d3"><h4>Rest</h4><p>Nap or quiet time.</p></div>
   <div className="step c-mint rv"><h4>Story &amp; go home</h4><p>Gentle wind-down, secure pickup.</p></div>
- </div>
- <p className="journey-note">Daycare hours and age eligibility are to be confirmed.</p></div></section>
+ </div></div></section>
 
 
     </>
