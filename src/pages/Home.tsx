@@ -13,7 +13,6 @@ export default function Home() {
  <HeroToys />
  <div className="container">
   <div className="hero-copy">
-   <div className="brandline">Journey Beyond the Orbit · Learn. Lead. Shine.</div>
    <h1>Every Great Journey Begins with a <em>Little Curiosity.</em></h1>
    <p className="lead">Where little explorers discover their potential through joyful, activity-based learning and meaningful experiences.</p>
    <div className="btns"><Link className="btn btn-primary" to="/admissions#enquire">Enquire Now</Link><Link className="btn btn-secondary" to="/admissions#visit">Book a Campus Visit</Link></div>
